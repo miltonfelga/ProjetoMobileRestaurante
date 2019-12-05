@@ -1,20 +1,22 @@
 package br.com.etecia.comidajaponesa;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
 
     GridView gridView;
+    Toolbar toolbar;
 
     String[] nomeCardapio = {"Ultimate Greek", "Pasta Salad", "Beef Lazone", "Rice Roll"};
     int[] imagemCardapio = {R.drawable.ultimategreek, R.drawable.pastasalad, R.drawable.beeflazone, R.drawable.riceroll};
@@ -23,6 +25,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        toolbar = findViewById(R.id.idToolbar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         gridView = findViewById(R.id.lstCardapios);
 
@@ -61,4 +69,7 @@ public class MainActivity extends AppCompatActivity {
             return view1;
         }
     }
+
+
+
 }
